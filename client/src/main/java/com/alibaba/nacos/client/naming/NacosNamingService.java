@@ -80,9 +80,11 @@ public class NacosNamingService implements NamingService {
     public NacosNamingService(Properties properties) throws NacosException {
         init(properties);
     }
-    
+
+    // READCODE: init
     private void init(Properties properties) throws NacosException {
         ValidatorUtils.checkInitParam(properties);
+        // READCODE: »ñÈ¡namespace
         this.namespace = InitUtils.initNamespaceForNaming(properties);
         InitUtils.initSerialization();
         InitUtils.initWebRootContext(properties);
@@ -122,7 +124,8 @@ public class NacosNamingService implements NamingService {
     public void registerInstance(String serviceName, String ip, int port, String clusterName) throws NacosException {
         registerInstance(serviceName, Constants.DEFAULT_GROUP, ip, port, clusterName);
     }
-    
+
+    // READCODE: ×¢²á
     @Override
     public void registerInstance(String serviceName, String groupName, String ip, int port, String clusterName)
             throws NacosException {
